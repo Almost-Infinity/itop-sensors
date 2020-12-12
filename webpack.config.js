@@ -119,7 +119,8 @@ module.exports = {
 		extensions: [ '.js', '.jsx' ],
 		alias: {
 			Components: path.resolve(SOURCE_PATH, 'components'),
-			Styles: path.resolve(SOURCE_PATH, 'sass')
+			Styles: path.resolve(SOURCE_PATH, 'sass'),
+			Hooks: path.resolve(SOURCE_PATH, 'hooks')
 		}
 	},
 

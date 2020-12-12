@@ -1,0 +1,50 @@
+.dashboard
+  overflow: auto
+  width: 700px
+  margin: 20px auto
+  padding: 10px
+  background-color: var(--primary-color)
+  box-shadow: var(--shadow-light)
+
+  @media screen and (max-width: 720px)
+    width: 100%
+    margin: 0
+
+.dashborad__title
+  margin: 0 auto 10px
+  text-align: center
+  font-variant: small-caps
+  font-size: 1.3em
+  font-weight: 500
+
+.dashboard__sensors
+  display: flex
+  justify-content: space-between
+
+  @media screen and (max-width: 450px)
+    flex-wrap: wrap
+    justify-content: center
+    margin-bottom: 10px
+
+.dashboard__sensor
+  width: 150px
+  border: 1px solid #ccc
+
+  @media screen and (max-width: 450px)
+    margin: 5px
+
+.dashboard__sensor-title
+  margin: 5px auto
+  text-align: center
+  font-size: .8em
+  font-weight: 600
+
+.dashboard__sensor-data
+  border-top: 1px solid #ccc
+  padding: 10px
+  text-align: center
+
+.dashboard__sensor-data--no-data
+  @extend .dashboard__sensor-data
+  color: var(--color-red)
+  font-weight: 600
