@@ -11,7 +11,7 @@ A system receives data from 4 sensors: A, B, C, D  and displays the latest value
 #### DELIVERABLES:
 - provide a basic UI in react — `✓`
 - you MUST use RXJS — `✓`
-- provide unit tests and basic component tests
+- provide unit tests and basic component tests — `✓`
 
 #### Nota Bene:
 - you do not need to implement a backend. You can emulate the random data straight inside you React application by using an EventEmitter or other RXJS syntax.
