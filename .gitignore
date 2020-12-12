@@ -111,3 +111,6 @@ build/
 .firebase/
 .firebaserc
 firebase.json
+
+# Jest
+__snapshots__/
