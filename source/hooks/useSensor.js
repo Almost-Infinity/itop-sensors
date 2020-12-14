@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { of, zip } from 'rxjs';
-import { catchError, delay, expand, map, mapTo, tap, timeout } from 'rxjs/operators';
+import { catchError, delay, expand, map, mapTo, timeout } from 'rxjs/operators';
 
 const useSensor = () => {
     const [ sensorsData, setSensorsData ] = useState({});
@@ -22,24 +22,16 @@ const useSensor = () => {
         );
     };
 
-    const arr2obj = (arr) => arr.reduce((acc, curr) => ({ ...acc, [curr.name]: curr.data }), {});
-
-    const main$ = zip(
-      getSensor('A'),
-      getSensor('B'),
-      getSensor('C'),
-      getSensor('D')
-    ).pipe(
-        map(arr2obj),
-        tap((state) => setSensorsData(state)),
+    const main$ = of(undefined).pipe(
         expand((state) => {
-          Array.isArray(state) && setSensorsData(arr2obj(state));
-
+          state && setSensorsData(state);
           return zip(
             getSensor('A'),
             getSensor('B'),
             getSensor('C'),
             getSensor('D')
+          ).pipe(
+            map((state) => state.reduce((acc, curr) => ({ ...acc, [curr.name]: curr.data }), {}))
           )
         })
       );
